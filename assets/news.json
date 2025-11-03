@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2025-07-03",
+    "title": "Stages d'été – inscriptions ouvertes",
+    "text": "Découverte, galops, rivière et jeux à poney. Places limitées.",
+    "image": "assets/riverList2.jpg",
+    "link": "#stages"
+  },
+  {
+    "date": "2025-06-15",
+    "title": "Bravo aux cavaliers – passages de galops",
+    "text": "Félicitations à tous pour votre travail et votre bonne humeur !",
+    "image": "assets/passageGalops.jpg",
+    "link": "#"
+  },
+  {
+    "date": "2025-05-28",
+    "title": "Nouveau poney en pension",
+    "text": "Venez le rencontrer à l'écurie !",
+    "image": "assets/poneyEnfant.jpg",
+    "link": "#galerie"
+  }
+]

@@ -1,0 +1,560 @@
+/* ===========================================================
+   PONEY CLUB DU RIBERAL - MAIN CSS
+   Thème : Nature, Bois, Équitation
+   =========================================================== */
+
+/* ------------------------------
+   VARIABLES DE COULEURS
+   ------------------------------ */
+:root {
+  --brun-fonce: #34261c;
+  --brun-clair: #4a3a2e;
+  --sable: #f8f5f1;
+  --beige: #e9e3dc;
+  --texte: #3d352f;
+  --accent: #a8895c;
+  --blanc: #fff;
+}
+
+/* ------------------------------
+   BASE GLOBALE
+   ------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--sable);
+  color: var(--texte);
+  line-height: 1.6;
+}
+
+/* Liens */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: 0.3s;
+}
+a:hover {
+  color: #c49b63;
+}
+
+/* Containers */
+.wrap {
+  width: min(1200px, 90%);
+  margin: 0 auto;
+}
+
+/* Sections */
+.section {
+  padding: 60px 0;
+}
+.section.sand {
+  background: var(--beige);
+}
+
+/* Titres */
+h1, h2, h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  color: var(--brun-fonce);
+}
+h2 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+}
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+
+/* ===========================================================
+   HEADER / NAVIGATION
+   =========================================================== */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(52, 38, 28, 0.9); /* brun profond semi-opaque */
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.topbar .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+/* Logo */
+.logo img {
+  display: block;
+  height: 90px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+}
+
+/* Navigation liens */
+.nav {
+  display: flex;
+  gap: 8px;
+}
+.nav a {
+  color: var(--blanc);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: background 0.3s;
+  font-weight: 500;
+}
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Burger menu */
+.burger {
+  display: none;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  color: var(--blanc);
+  cursor: pointer;
+}
+
+@media (max-width: 880px) {
+  .burger {
+    display: block;
+  }
+  .nav {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    top: 70px;
+    background: rgba(45, 33, 24, 0.96);
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    flex-direction: column;
+  }
+  .nav.open {
+    display: flex;
+  }
+  .nav a {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+/* ===========================================================
+   HERO / SLIDER
+   =========================================================== */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  color: var(--blanc);
+  overflow: hidden;
+}
+
+.hero img,
+.hero video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: var(--blanc);
+}
+
+.hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--blanc);
+  padding: 10px 22px;
+  border-radius: 999px;
+  margin: 6px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #c49b63;
+}
+
+/* ===========================================================
+   GALERIE
+   =========================================================== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+/* ===========================================================
+   SECTION : NOS INSTALLATIONS
+   =========================================================== */
+
+#installations {
+  background: #f8f5f0;
+  text-align: center;
+  padding: 80px 0;
+}
+
+#installations h2 {
+  color: #3b2f1b;
+  margin-bottom: 8px;
+  font-size: 2.2rem;
+}
+
+#installations .subtitle {
+  color: #6a5e4b;
+  margin-bottom: 30px;
+}
+
+.install-gallery {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.install-slider {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.install-slider img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.install-slider img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.install-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 18px 0 10px;
+  gap: 10px;
+}
+
+.install-btn {
+  border: none;
+  background: #e8e1d9;
+  color: #3b2f1b;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.install-btn:hover {
+  background: #d4c5b7;
+}
+
+.install-btn.active {
+  background: #3b2f1b;
+  color: #fff;
+}
+
+.install-text {
+  margin-top: 10px;
+  color: #4b3f2a;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .install-slider img {
+    height: 300px;
+  }
+}
+
+
+/* ===========================================================
+   PRESTATIONS
+   =========================================================== */
+
+.pc-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.pc-card {
+  background: #fff;
+  border: 1px solid #0001;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 8px 18px #0000000f;
+}
+
+.pc-card h3 {
+  margin-bottom: 8px;
+  color: var(--accent);
+  text-align: left;
+}
+
+.pc-card p {
+  color: #4a4744;
+  font-size: 0.95rem;
+}
+
+/* ===========================================================
+   ACTUS
+   =========================================================== */
+
+.news-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.news-card {
+  background: #fff;
+  border: 1px solid #0001;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px #00000010;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.news-body {
+  padding: 14px;
+}
+
+.news-meta {
+  font-size: 12px;
+  color: #7b7875;
+  margin-bottom: 6px;
+}
+
+.news-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.news-body p {
+  margin: 0;
+}
+
+/* ===========================================================
+   FOOTER
+   =========================================================== */
+
+.footer {
+  background: var(--brun-fonce);
+  color: var(--sable);
+  border-top: none;
+  padding: 30px 0;
+}
+
+.footer .foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer a {
+  color: #fff;
+}
+
+.footer img {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+.socials a {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+.socials a:hover {
+  opacity: 0.8;
+}
+
+/* ===========================================================
+   DIVERS / UTILS
+   =========================================================== */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Section Facebook */
+#actus-facebook {
+  background: #f6f2ee;
+  text-align: center;
+  padding: 80px 0;
+}
+
+#actus-facebook h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #3e2f1c;
+}
+
+#actus-facebook p {
+  color: #5a4a3a;
+  margin-bottom: 20px;
+}
+
+.fb-container {
+  display: flex;
+  justify-content: center;
+}
+
+.fb-container iframe {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* ===========================================================
+   LIGHTBOX GLOBALE (overlay plein écran)
+   =========================================================== */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;                /* cachée par défaut */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+#lightbox.open { display: flex; }
+
+#lightbox .lb-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.85);
+  backdrop-filter: blur(2px);
+}
+
+#lightbox .lb-figure {
+  position: relative;
+  z-index: 2;
+  max-width: 96vw;
+  max-height: 92vh;
+  display: grid;
+  gap: 10px;
+  place-items: center;
+}
+
+#lightbox .lb-img {
+  max-width: 96vw;
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.5);
+}
+
+#lightbox .lb-caption {
+  color: #eee;
+  font-size: .95rem;
+  text-align: center;
+  max-width: 80vw;
+}
+
+/* Boutons */
+#lightbox .lb-btn {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255,255,255,.12);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  cursor: pointer;
+  transition: background .2s;
+}
+#lightbox .lb-btn:hover { background: rgba(255,255,255,.22); }
+
+#lightbox .lb-close { top: 18px; right: 18px; font-size: 28px; }
+#lightbox .lb-prev  { left: 18px; }
+#lightbox .lb-next  { right: 18px; }
+
+@media (max-width: 640px){
+  #lightbox .lb-prev, 
+  #lightbox .lb-next { top: unset; bottom: 18px; }
+}
