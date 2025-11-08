@@ -1,19 +1,27 @@
 /* ===========================================================
    PONEY CLUB DU RIBERAL - MAIN CSS
-   Thème : Nature, Bois, Équitation
+   Thème : Violet & Nature
    =========================================================== */
 
 /* ------------------------------
    VARIABLES DE COULEURS
    ------------------------------ */
 :root {
-  --brun-fonce: #34261c;
-  --brun-clair: #4a3a2e;
-  --sable: #f8f5f1;
-  --beige: #e9e3dc;
-  --texte: #3d352f;
-  --accent: #a8895c;
-  --blanc: #fff;
+  /* PALETTE VIOLET (inspirée du logo) */
+  --violet-fonce: #3b2580;
+  --violet:       #5634a9;
+  --violet-clair: #9a85e0;
+  --lavande:      #f1edff;
+  --neutre:       #faf9ff;
+
+  /* Remap de tes anciennes variables */
+  --brun-fonce: var(--violet-fonce);
+  --brun-clair: #4d3aa1;
+  --sable:      var(--lavande);
+  --beige:      var(--neutre);
+  --texte:      #2e294e;
+  --accent:     var(--violet);
+  --blanc:      #ffffff;
 }
 
 /* ------------------------------
@@ -43,7 +51,7 @@ a {
   transition: 0.3s;
 }
 a:hover {
-  color: #c49b63;
+  color: var(--violet-clair);
 }
 
 /* Containers */
@@ -84,7 +92,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(52, 38, 28, 0.9); /* brun profond semi-opaque */
+  background: rgba(59, 37, 128, 0.9);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -141,7 +149,7 @@ h3 {
     left: 16px;
     right: 16px;
     top: 70px;
-    background: rgba(45, 33, 24, 0.96);
+    background: rgba(59, 37, 128, 0.96);
     border-radius: 16px;
     padding: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -216,7 +224,7 @@ h3 {
   transition: background 0.3s;
 }
 .btn:hover {
-  background: #c49b63;
+  background: var(--violet-fonce);
 }
 
 /* ===========================================================
@@ -244,19 +252,19 @@ h3 {
    =========================================================== */
 
 #installations {
-  background: #f8f5f0;
+  background: var(--lavande);
   text-align: center;
   padding: 80px 0;
 }
 
 #installations h2 {
-  color: #3b2f1b;
+  color: var(--violet-fonce);
   margin-bottom: 8px;
   font-size: 2.2rem;
 }
 
 #installations .subtitle {
-  color: #6a5e4b;
+  color: #5e4ea2;
   margin-bottom: 30px;
 }
 
@@ -297,8 +305,8 @@ h3 {
 
 .install-btn {
   border: none;
-  background: #e8e1d9;
-  color: #3b2f1b;
+  background: #e9e3ff;
+  color: var(--violet-fonce);
   font-weight: 600;
   border-radius: 30px;
   padding: 8px 18px;
@@ -307,17 +315,17 @@ h3 {
 }
 
 .install-btn:hover {
-  background: #d4c5b7;
+  background: #dcd2ff;
 }
 
 .install-btn.active {
-  background: #3b2f1b;
+  background: var(--violet-fonce);
   color: #fff;
 }
 
 .install-text {
   margin-top: 10px;
-  color: #4b3f2a;
+  color: #3d2f7a;
   font-size: 1rem;
 }
 
@@ -460,7 +468,7 @@ h3 {
 
 /* Section Facebook */
 #actus-facebook {
-  background: #f6f2ee;
+  background: var(--neutre);
   text-align: center;
   padding: 80px 0;
 }
@@ -468,11 +476,11 @@ h3 {
 #actus-facebook h2 {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: #3e2f1c;
+  color: var(--violet-fonce);
 }
 
 #actus-facebook p {
-  color: #5a4a3a;
+  color: #5e4ea2;
   margin-bottom: 20px;
 }
 
@@ -492,7 +500,7 @@ h3 {
 #lightbox {
   position: fixed;
   inset: 0;
-  display: none;                /* cachée par défaut */
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -559,12 +567,25 @@ h3 {
   #lightbox .lb-next { top: unset; bottom: 18px; }
 }
 
-/* Le clic ne doit passer que sur le slide visible */
-.install-slider img {
-  pointer-events: none;   /* ignore les clics par défaut */
-  z-index: 1;
+/* HERO – pile d’images + fondu */
+.hero { position: relative; overflow: hidden; }
+.hero > img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transition: opacity 800ms ease;
+  z-index: 1; pointer-events: none;
 }
-.install-slider img.active {
-  pointer-events: auto;   /* seul le visible capte le clic */
-  z-index: 2;             /* passe devant les autres */
+.hero > img.show{ opacity: 1; }
+
+.hero::after{ z-index: 2; }
+.hero .hero-content{ position: relative; z-index: 3; }
+
+.hero-dots{
+  position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%);
+  display: flex; gap: 6px; z-index: 4;
 }
+.hero-dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(255,255,255,.45); border: 0; cursor: pointer;
+}
+.hero-dot.active{ background: #fff; }
