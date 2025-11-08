@@ -558,3 +558,13 @@ h3 {
   #lightbox .lb-prev, 
   #lightbox .lb-next { top: unset; bottom: 18px; }
 }
+
+/* Le clic ne doit passer que sur le slide visible */
+.install-slider img {
+  pointer-events: none;   /* ignore les clics par défaut */
+  z-index: 1;
+}
+.install-slider img.active {
+  pointer-events: auto;   /* seul le visible capte le clic */
+  z-index: 2;             /* passe devant les autres */
+}

@@ -1,4 +1,11 @@
 [
+    {
+    "date": "2025-08-01",
+    "title": "Ouverture du nouveau manège",
+    "text": "Le manège est ouvert",
+    "image": "assets/manege.jpeg",
+    "link": "#manege"
+  },
   {
     "date": "2025-07-03",
     "title": "Stages d'été – inscriptions ouvertes",
@@ -17,7 +24,14 @@
     "date": "2025-05-28",
     "title": "Nouveau poney en pension",
     "text": "Venez le rencontrer à l'écurie !",
-    "image": "assets/poneyEnfant.jpg",
+    "image": "assets/2poney.jpeg",
     "link": "#galerie"
+  },
+  {
+    "date": "2025-05-28",
+    "title": "FLOCAGES DE VESTES DE L’ECURIE",
+    "text": "FLOCAGES DE VESTES DE L’ECURIE,MÊME VICKY ET MILTON🐶 😂🤣",
+    "image": "assets/vestes.jpg",
+    "link": "#flocages"
   }
 ]

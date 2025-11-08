@@ -105,14 +105,25 @@ $('.install-btn').on('click', function(){
     return $('img.js-lightbox');
   }
 
-  function openFrom($el){
-    const $group = getGroup($el);
-    group = $group.toArray();
+function openFrom($el){
+  // Groupe par conteneur
+  const $group = getGroup($el);
+  group = $group.toArray();
+
+  // Si on est dans un slider, index = image .active
+  const $slider = $el.closest('.install-slider');
+  if ($slider.length) {
+    const $active = $slider.find('img.active.js-lightbox').first();
+    index = group.indexOf($active.get(0));
+  } else {
     index = group.indexOf($el.get(0));
-    show(index);
-    $lb.addClass('open').attr('aria-hidden', 'false');
-    $('body').css('overflow','hidden');
   }
+
+  show(index);
+  $lb.addClass('open').attr('aria-hidden', 'false');
+  $('body').css('overflow','hidden');
+}
+
 
   function show(i){
     if(!group.length) return;
@@ -133,7 +144,19 @@ $('.install-btn').on('click', function(){
   }
 
   // Ouvrir
-  $(document).on('click', 'img.js-lightbox', function(){ openFrom($(this)); });
+// Ouvrir (normalise le clic sur slider => prend toujours l'image .active)
+$(document).on('click', 'img.js-lightbox', function(){
+  const $clicked = $(this);
+  const $slider  = $clicked.closest('.install-slider');
+
+  // Si on est dans le slider, on force l'image courante = .active
+  const $target = $slider.length
+    ? $slider.find('img.active.js-lightbox').first()
+    : $clicked;
+
+  openFrom($target);
+});
+
   // Contrôles
   $lb.on('click', '[data-lb-close]', close);
   $lb.find('.lb-next').on('click', next);
