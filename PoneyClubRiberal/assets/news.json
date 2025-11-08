@@ -28,10 +28,17 @@
     "link": "#galerie"
   },
   {
-    "date": "2025-05-28",
+    "date": "2025-10-14",
     "title": "FLOCAGES DE VESTES DE L’ECURIE",
     "text": "FLOCAGES DE VESTES DE L’ECURIE,MÊME VICKY ET MILTON🐶 😂🤣",
     "image": "assets/vestes.jpg",
+    "link": "#flocages"
+  },
+  {
+    "date": "2025-10-12",
+    "title": "CSO TAXO",
+    "text": "Journée 1 er concours du club : BRAVO À TOUS 👏👏👏",
+    "image": "assets/concoursTaxo.jpg",
     "link": "#flocages"
   }
 ]
